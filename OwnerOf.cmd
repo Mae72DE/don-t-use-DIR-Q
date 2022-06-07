@@ -1,25 +1,25 @@
 <!-- :  CMD-Script : Show Ownership of a FileObject
 :: Demo-Script: Show Owner
-::ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ{ CodePage: 850 }ÄÄ
-:: on other codePage you don't see a line:                  úúúgerman Verisonúúú
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ CodePage: 850 }â”€â”€
+:: on other codePage you don't see a line:                  Â·Â·Â·german VerisonÂ·Â·Â·
 ::
 :: Don't use DIR /Q since the ownership info may be clipped
 :: and also localisation and custom-format makes hard to got back right token.
 ::
-:: This is the german Version ú Script by M„x 2022
+:: This is the german Version Â· Script by MÃ¤x 2022
 ::
-:: Wieder einmal ist es nicht m”glich, einen Standart-CMD-Befehl im Script zu
+:: Wieder einmal ist es nicht mÃ¶glich, einen Standart-CMD-Befehl im Script zu
 :: benutzen, das kennen wir bereits von TIME und DATE wo wir besser auf WMIC
-:: zurckgreifen. Auch bei der Option /Q vom DIR-Befehl werden wir dazu ge-
-:: zwungen ein wenig mehr Aufwand betreiben zu mssen.
+:: zurÃ¼ckgreifen. Auch bei der Option /Q vom DIR-Befehl werden wir dazu ge-
+:: zwungen ein wenig mehr Aufwand betreiben zu mÃ¼ssen.
 ::
-::ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ{ set Debug to see whats happens }ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ set Debug to see whats happens }â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @echo off %debug%
-::ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ{ set Error, cause SETLOCAL did not, but reset }ÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ set Error, cause SETLOCAL did not, but reset }â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  verify Error 2>nul
  setLocal enableExtensions enableDelayedExpansion
  if errorLevel 1 goTo NoExt
-::ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ{ Parameter to the Script should be a FileObject }ÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ Parameter to the Script should be a FileObject }â”€â”€
  set "P="
  set "P=%~f1"
  if not defined P goTo:ShowUsage
@@ -30,26 +30,26 @@
  timeout -1
  exit /b 0
 
-::ÄÄÄÄÄÄÄÄÄÄÄ{ Purose of the Script and Usage of }ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ Purose of the Script and Usage of }â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  :ShowUsage
  mode 73
  for /L %%a in (1,1,15) do echo;
- echo; ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ echo; â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  echo;    Don't use DIR /Q since the ownership info may be clipped. 
  echo;
  echo; Usage: %~n0 ^<FileObject^>
- echo;                                                    ú german Version:
- echo; ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ echo;                                                    Â· german Version:
+ echo; â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  echo;  Der Befehl DIR /Q generiert eine voll lokalisierte Ausgabe,
  echo;  welche nur durch die System-Einstellung eingestellt werden kann.
  echo;  Sich aber vorallem nicht einfach von der Kommandozeile bestimmt
- echo;  werden kann, um eine brauchbar formatierte Ausgabe fr ein Skript
+ echo;  werden kann, um eine brauchbar formatierte Ausgabe fÃ¼r ein Skript
  echo;  zu erhalten.
  echo;
  echo;  Batch-Skript Programmier kenne es bereits von DATE und TIME
- echo;  wo ebenfalls WMIC bemht werden muss, um eine stehts brauchbare
- echo;  Zeitmarke fr Logbuch-Dateien generieren zu k”nnen, welche un-
- echo;  abh„ngig von der Lokaliserung auf jedem Windows-System laufen
+ echo;  wo ebenfalls WMIC bemÃ¼ht werden muss, um eine stehts brauchbare
+ echo;  Zeitmarke fÃ¼r Logbuch-Dateien generieren zu kÃ¶nnen, welche un-
+ echo;  abhÃ¤ngig von der Lokaliserung auf jedem Windows-System laufen
  echo;  soll.
  echo;
  echo;  Dieses Demo-Skript zeigt wie WMIC genutzt werden kann,
@@ -60,10 +60,10 @@
  echo;  gabeaufforderung aufrufst.
  echo;
  echo;
-::ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 :: Spezial-Zeichen generien:
-::   BS = Backspace      = L”sche Zeichen links
-::   CR = Carrier Return = Wagenrcklauf (ohne Zeilensprung)
+::   BS = Backspace      = LÃ¶sche Zeichen links
+::   CR = Carrier Return = WagenrÃ¼cklauf (ohne Zeilensprung)
  prompt $H$S
  call set T="Tokens=1,3"
  for /F %T% %%a in ('for /F %%b in ^('copy /z "%~f0" nul'^) do %%b 2^>nul') do (
@@ -71,7 +71,7 @@
   set "CR=%%b"
  )
  prompt
-::ÄÄÄÄÄÄÄÄÄÄÄÄ{ You may enter a File Object now }ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ You may enter a File Object now }â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  :FragObjekt
  set "P="
  set /P "P=.%BS%  Datei-Object: "
@@ -80,7 +80,7 @@
    echo;
    echo;  Ist das Laufwerk vielleicht nicht bereit?
    echo;  Zum abbrechen bitte nichts eingeben,
-   echo;  also nur die Eingabe-Taste drcken!
+   echo;  also nur die Eingabe-Taste drÃ¼cken!
    echo;
    goTo:FragObjekt
  )
@@ -89,7 +89,7 @@
  timeout -1
  exit /b 0
 
-::ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ{ Main-Programm }ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ Main-Programm }â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  :StartCheck
  set "FSO="
  call set "FSO=%~f1"
@@ -100,7 +100,7 @@
  echo;
  echo; %Obj%: %~nx1
 
-::ÄÄÄ{ This is only needful to come in a shorter line for FOR /F & WMIC }ÄÄÄÄÄÄÄ
+::â”€â”€â”€{ This is only needful to come in a shorter line for FOR /F & WMIC }â”€â”€â”€â”€â”€â”€â”€
  set "wmicPath=Win32_LogicalFileSecuritySetting"
  set "a_RR=/resultRole:Owner"
  set "a_AC=/assocClass:Win32_logicalFileOwner"
@@ -110,24 +110,24 @@
  set FP="skip=2 tokens=*"
  for /F %FP% %%a in ('%WMI%') do call:Splice "%%a"
  goTo:EoF
-::ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ{ Splice WMIC Output }ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€{ Splice WMIC Output }â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  :Splice
  call set "Shredd=%~1"
- call set Shredded="%Shredd:  =ú%" 
- for /F "delims=ú tokens=12,10,13" %%a in (%Shredded%) do (
+ call set Shredded="%Shredd:  =Â·%" 
+ for /F "delims=Â· tokens=12,10,13" %%a in (%Shredded%) do (
   echo;  Owner: %%b\%%a
   echo;    SID: %%c
  ) 
  goTo:EoF
  
-::ÄÄÄÄÄÄÄÄ{ No CMD-Ext.Error Message in a PopUpWindow }ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+::â”€â”€â”€â”€â”€â”€â”€â”€{ No CMD-Ext.Error Message in a PopUpWindow }â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  :NoExt
  echo: 
  set "cmd=mode 52,8&color 4e&echo:"
  set "cmd=%cmd%&echo:  Sorry this Script don't support your System,"
  set "cmd=%cmd%&echo:  cause your System don't support Cmd-Extensions!"
  set "cmd=%cmd%&echo:"
- set "cmd=%cmd%&echo:  Fehler: System-Befehlserweiterung nicht m”glich."
+ set "cmd=%cmd%&echo:  Fehler: System-Befehlserweiterung nicht mÃ¶glich."
  set "cmd=%cmd%&echo:"
  set "cmd=%cmd%&Pause >nul"
  start "Can't run", "cmd /C %cmd%"
